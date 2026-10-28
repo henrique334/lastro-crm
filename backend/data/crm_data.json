@@ -1,0 +1,596 @@
+{
+  "services": [
+    {
+      "id": "sites",
+      "name": "Criação de Sites",
+      "shortDesc": "Desenvolvimento institucional & e-commerces de alta velocidade.",
+      "fullDesc": "Sites responsivos focados em UX/UI, SEO para Google, carregamento ultrarrápido e arquitetura orientada à conversão na região.",
+      "idealTicket": 4500,
+      "recurrence": false,
+      "icon": "fa-laptop-code",
+      "targetGaps": [
+        "Sem site",
+        "Site não-responsivo",
+        "Site lento",
+        "Sem certificado SSL",
+        "Layout amador"
+      ]
+    },
+    {
+      "id": "trafego",
+      "name": "Tráfego Pago de Alta Performance",
+      "shortDesc": "Gestão avançada de Google Ads e Meta Ads orientada a ROI.",
+      "fullDesc": "Campanhas de anúncios estratégicas com rastreamento preciso (Pixel, API de Conversões) para atrair clientes prontos para compra e reduzir o CPA na Alta Paulista e região.",
+      "idealTicket": 2500,
+      "recurrence": true,
+      "icon": "fa-chart-line",
+      "targetGaps": [
+        "Não anuncia no Google",
+        "Sem campanhas ativas no Meta Ads",
+        "Dependência exclusiva de indicação orgânica",
+        "Custo por Lead alto"
+      ]
+    },
+    {
+      "id": "redes",
+      "name": "Gestão de Redes Sociais",
+      "shortDesc": "Linha editorial, design estratégico e autoridade de marca.",
+      "fullDesc": "Planejamento de conteúdo com narrativas envolventes que transformam seguidores em clientes pagantes e consolidam autoridade no setor.",
+      "idealTicket": 2000,
+      "recurrence": true,
+      "icon": "fa-hashtag",
+      "targetGaps": [
+        "Feed desatualizado há semanas",
+        "Design desalinhado",
+        "Pouca retenção/engajamento",
+        "Sem vídeos/reels estratégicos"
+      ]
+    },
+    {
+      "id": "id_visual",
+      "name": "Identidade Visual & Branding",
+      "shortDesc": "Design de logotipos, manual de marca e posicionamento de luxo.",
+      "fullDesc": "Construção visual de autoridade premium para cobrar mais caro e ser reconhecido como líder inquestionável do mercado.",
+      "idealTicket": 3500,
+      "recurrence": false,
+      "icon": "fa-pen-nib",
+      "targetGaps": [
+        "Logo em baixa resolução/genérico",
+        "Falta de padronização cromática",
+        "Percepção de valor inferior aos concorrentes"
+      ]
+    },
+    {
+      "id": "landing",
+      "name": "Landing Pages de Alta Conversão",
+      "shortDesc": "Páginas diretas de venda com gatilhos mentais e conversão extrema.",
+      "fullDesc": "Páginas únicas focadas em captura de leads ou vendas diretas com copywriting persuasivo, carregamento em menos de 1.5s e integração com WhatsApp/CRM.",
+      "idealTicket": 2200,
+      "recurrence": false,
+      "icon": "fa-rocket",
+      "targetGaps": [
+        "Campanhas mandando para homepage confusa",
+        "Taxa de conversão de leads abaixo de 5%",
+        "Sem clareza de chamada para ação"
+      ]
+    },
+    {
+      "id": "consultoria",
+      "name": "Consultoria & Diagnóstico Digital",
+      "shortDesc": "Auditoria de ponta a ponta e plano de escala previsível.",
+      "fullDesc": "Mapeamento minucioso de todo o ecossistema comercial e digital do cliente para identificar vazamentos de leads e desenhar o roadmap de crescimento regional.",
+      "idealTicket": 5000,
+      "recurrence": false,
+      "icon": "fa-user-tie",
+      "targetGaps": [
+        "Marketing disperso sem métricas",
+        "Investimento sem clareza de retorno",
+        "Equipe comercial desalinhada com marketing"
+      ]
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-pompeia-001",
+      "companyName": "Supermercado Kawakami Pompeia",
+      "tradeName": "Kawakami Pompeia",
+      "segment": "Comércio Varejista & Supermercados",
+      "city": "Pompeia",
+      "state": "SP",
+      "address": "Rua João Ramalho, 700 - Centro, Pompeia - SP",
+      "neighborhood": "Centro",
+      "postalCode": "17580-000",
+      "phone": "(14) 3405-1000",
+      "whatsapp": "551434051000",
+      "email": "sac@kawakami.com.br",
+      "website": "https://kawakami.com.br",
+      "instagram": "@superkawakami",
+      "contactPerson": "Gerência Comercial / Marketing",
+      "stage": "novo",
+      "score": 93,
+      "estimatedValue": 4500,
+      "recurrence": true,
+      "recommendedServiceId": "trafego",
+      "matchReason": "Rede supermercadista forte e tradicional em Pompeia. Suas ofertas semanais dependem muito de encarte impresso e postagens estáticas no Instagram. Tráfego pago geolocalizado no Meta Ads para o raio de Pompeia e Quintana aumentará drasticamente o fluxo de compras de fim de semana e vendas via WhatsApp/delivery.",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Institucional geral da rede, sem páginas de ofertas dinâmicas locais para Pompeia",
+        "metaAdsActive": false,
+        "googleAdsActive": false,
+        "instagramFollowers": "18.2k (Rede)",
+        "socialQuality": "Artes de encarte estático, sem vídeos dinâmicos de ofertas locais",
+        "gaps": [
+          "Sem anúncios patrocinados segmentados para o raio exclusivo de Pompeia e Quintana",
+          "Ofertas em imagem estática com baixo alcance orgânico pelo algoritmo do Instagram",
+          "Ausência de funil de captação de clientes para o clube de compras no WhatsApp"
+        ],
+        "strengths": [
+          "Marca com altíssima credibilidade e tradição em Pompeia",
+          "Grande fluxo diário de clientes locais"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Acompanho a relevância e tradição do Kawakami em Pompeia. Notamos que grande parte dos moradores de Pompeia e Quintana está no Instagram todos os dias, mas as ofertas semanais ainda dependem de alcance orgânico limitado. A Lastro estruturou uma estratégia de tráfego hiperlocal para colocar as ofertas do Kawakami no celular de cada família da cidade no momento exato das compras. Podemos apresentar um diagnóstico rápido de 10 min?",
+        "email": "À Gerência de Marketing do Supermercado Kawakami Pompeia,\n\nIdentificamos uma oportunidade de expansão do faturamento das ofertas semanais em Pompeia através de tráfego geolocalizado.\n\nA Lastro é especialista em campanhas de alta conversão regional.\n\nPodemos conversar nesta semana?",
+        "phoneTalkingPoints": "Destacar a força da marca em Pompeia; falar sobre substituir ou complementar o encarte físico por anúncios no feed dos moradores da cidade."
+      },
+      "interactions": [
+        {
+          "id": "int-pomp-001",
+          "date": "2026-10-28T18:14:32.847Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Empresa oficial mapeada em Pompeia/SP (Centro). Classificada em Descoberta (Score 93/100)."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-pompeia-002",
+      "companyName": "Farmácia do Povo Pompeia",
+      "tradeName": "Farmácia do Povo",
+      "segment": "Saúde & Farmacêutica",
+      "city": "Pompeia",
+      "state": "SP",
+      "address": "Av. Dr. José de Moura Resende, 618 - Centro, Pompeia - SP",
+      "neighborhood": "Centro",
+      "postalCode": "17580-000",
+      "phone": "(14) 3452-1010",
+      "whatsapp": "551434521010",
+      "email": "contato@farmaciadopovopompeia.com.br",
+      "website": "",
+      "instagram": "@farmaciadopovopompeia",
+      "contactPerson": "Farmacêutico Responsável / Proprietário",
+      "stage": "novo",
+      "score": 89,
+      "estimatedValue": 2200,
+      "recurrence": false,
+      "recommendedServiceId": "landing",
+      "matchReason": "Drogaria tradicional e de referência no centro de Pompeia na Av. Dr. José de Moura Resende. NÃO possui portal web nem catálogo estruturado de pedidos rápidos. Uma Landing Page com botão direto de pedido via WhatsApp e entregas em domicílio garantirá exclusividade nas compras de emergência e medicamentos contínuos.",
+      "digitalAudit": {
+        "hasWebsite": false,
+        "websiteQuality": "Inexistente",
+        "metaAdsActive": false,
+        "googleAdsActive": false,
+        "instagramFollowers": "1.4k",
+        "socialQuality": "Publicações raras, sem linha editorial de bem-estar",
+        "gaps": [
+          "Sem presença no Google para termos como \"farmácia de plantão Pompeia\" ou \"entrega de remédio Pompeia\"",
+          "Sem página rápida com botão de pedido expresso via WhatsApp",
+          "Atendimento de delivery dependente apenas de ligações convencionais"
+        ],
+        "strengths": [
+          "Localização central excelente na Av. Dr. José de Moura Resende",
+          "Clientela fiel e tradição familiar na cidade"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Sei da tradição e confiança da Farmácia do Povo no centro de Pompeia. Notamos que muitas pessoas hoje procuram farmácia e entrega de medicamentos pelo celular e acabam não encontrando uma página rápida de pedido direto pelo WhatsApp da sua equipe. A Lastro desenvolve Landing Pages ultrarrápidas de pedidos que triplicam o delivery local. Gostariam de ver uma demonstração?",
+        "email": "Olá,\n\nA Farmácia do Povo tem ponto estratégico em Pompeia, mas a ausência de um canal digital rápido de pedidos faz vocês perderem compras de conveniência.\n\nPodemos apresentar uma solução sob medida?",
+        "phoneTalkingPoints": "Comentar o ponto comercial na Av. Moura Resende; destacar a facilidade que o cliente tem em mandar receita pelo WhatsApp após clicar na página."
+      },
+      "interactions": [
+        {
+          "id": "int-pomp-002",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada no Centro de Pompeia/SP. Oportunidade clara de Landing Page e delivery digital."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-marilia-001",
+      "companyName": "Oral Sin Implantes Marília",
+      "tradeName": "Oral Sin Marília",
+      "segment": "Saúde & Odontologia Avançada",
+      "city": "Marília",
+      "state": "SP",
+      "address": "Av. Sampaio Vidal, 1145 - Centro, Marília - SP",
+      "neighborhood": "Centro",
+      "postalCode": "17500-022",
+      "phone": "(14) 3454-7000",
+      "whatsapp": "5514997887000",
+      "email": "marilia@oralsin.com.br",
+      "website": "https://oralsin.com.br/marilia",
+      "instagram": "@oralsinmarilia",
+      "contactPerson": "Diretor Clínico / Gestor de Atendimento",
+      "stage": "novo",
+      "score": 95,
+      "estimatedValue": 3500,
+      "recurrence": true,
+      "recommendedServiceId": "trafego",
+      "matchReason": "Clínica odontológica de alto padrão situada na principal avenida de Marília (Av. Sampaio Vidal). Embora faça parte de uma rede consolidada, o mercado de implantes e próteses fixas em Marília tem concorrência feroz. Campanhas locais de Google Ads focadas em termos de alta intenção (\"implante dentário Marília\", \"prótese protocolo Marília\") colocarão a clínica no topo das pesquisas de pacientes particulares da cidade e de cidades vizinhas (como Pompeia e Garça).",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Página da franqueadora com tempo de resposta mediano",
+        "metaAdsActive": true,
+        "googleAdsActive": false,
+        "instagramFollowers": "7.8k",
+        "socialQuality": "Conteúdo institucional padronizado de franquia",
+        "gaps": [
+          "Google Ads local inativo para buscas de urgência de implantes em Marília",
+          "Página de destino não personalizada com a equipe médica de Marília",
+          "Ausência de captação ativa de pacientes nas cidades satélites da região (Pompeia, Vera Cruz, Oriente)"
+        ],
+        "strengths": [
+          "Marca reconhecida nacionalmente com excelente unidade na Sampaio Vidal",
+          "Capacidade técnica para procedimentos cirúrgicos de alto ticket"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Acompanho o trabalho impecável da Oral Sin na Sampaio Vidal em Marília. Analisamos o volume de pesquisas do Google em Marília e cidades vizinhas e vimos dezenas de pacientes procurando diariamente por implantes dentários e prótese protocolo, mas encontrando consultórios concorrentes que anunciam no topo. Nós da Lastro criamos máquinas de aquisição de pacientes particulares pelo Google. Posso apresentar os números dessa oportunidade em Marília?",
+        "email": "À Direção Clínica da Oral Sin Marília,\n\nIdentificamos demanda reprimida nas pesquisas de Google em Marília por tratamentos de alto valor que não estão sendo captados pela sua unidade.\n\nA Lastro tem expertise em captação de pacientes particulares na região.\n\nPodemos alinhar uma reunião de 15 minutos?",
+        "phoneTalkingPoints": "Citar o prestígio da clínica na Sampaio Vidal; alertar que clínicas menores estão comprando as palavras-chave principais no Google Marília."
+      },
+      "interactions": [
+        {
+          "id": "int-mar-001",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Localizada na Av. Sampaio Vidal, Marília/SP. Alta aderência para Google Ads e escala regional."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-marilia-002",
+      "companyName": "Solaris Energia Solar Marília",
+      "tradeName": "Solaris Energia Solar",
+      "segment": "Energia Solar & Engenharia",
+      "city": "Marília",
+      "state": "SP",
+      "address": "Av. Castro Alves, 1145 - Somenzari, Marília - SP",
+      "neighborhood": "Somenzari",
+      "postalCode": "17506-000",
+      "phone": "(14) 3454-3000",
+      "whatsapp": "5514991223000",
+      "email": "contato@solarisenergiasolar.com.br",
+      "website": "https://solarisenergiasolar.com.br",
+      "instagram": "@solarisenergiasolar",
+      "contactPerson": "Diretoria Comercial / Engenharia",
+      "stage": "novo",
+      "score": 96,
+      "estimatedValue": 5000,
+      "recurrence": false,
+      "recommendedServiceId": "consultoria",
+      "matchReason": "Empresa do setor de energia solar fotovoltaica com ticket médio alto por instalação (R$ 15k a R$ 80k). Possui atuação em Marília, Pompeia e região da Alta Paulista, mas o ecossistema de vendas sofre com vazamento de leads no WhatsApp e equipes comerciais que dependem apenas de indicações. A Consultoria Digital Lastro reestruturará o funil comercial para empresas e produtores rurais da região.",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Institucional comum, sem calculadora solar interativa de conversão",
+        "metaAdsActive": true,
+        "googleAdsActive": false,
+        "instagramFollowers": "5.2k",
+        "socialQuality": "Fotos de placas solares instaladas, pouco foco em ROI para o cliente",
+        "gaps": [
+          "Sem Landing Page focada no agronegócio e granjas da região de Marília e Pompeia",
+          "Tempo de resposta a contatos no WhatsApp superior a 4 horas",
+          "Falta de rastreamento com Pixel e CRM integrado aos anúncios"
+        ],
+        "strengths": [
+          "Equipe técnica própria de engenharia e homologação",
+          "Margem de lucro substancial por projeto fechado"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Acompanho o crescimento da Solaris no mercado solar em Marília e região. No setor de energia solar, sabemos que o custo de aquisição de cliente pode ser altíssimo quando os leads do WhatsApp não têm triagem imediata. Na Lastro auditamos e construímos o funil de vendas digital de ponta a ponta para fechar contratos com empresas e produtores rurais da Alta Paulista. Vamos fazer um diagnóstico sem custo?",
+        "email": "À Diretoria da Solaris Energia Solar,\n\nA captação de clientes B2B e rurais em Marília e Pompeia pode ser multiplicada com a reestruturação do seu funil comercial.\n\nA Lastro oferece consultoria estratégica para escalabilidade comercial.\n\nPodemos agendar uma demonstração?",
+        "phoneTalkingPoints": "Comparar o valor do projeto de consultoria com a margem de apenas 1 usina solar instalada a mais no mês."
+      },
+      "interactions": [
+        {
+          "id": "int-mar-002",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada no bairro Somenzari, Marília/SP. Excelente perfil para Consultoria de Funil e Landing Pages."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-tupa-001",
+      "companyName": "Imobiliária Tupan",
+      "tradeName": "Imobiliária Tupan",
+      "segment": "Mercado Imobiliário & Lançamentos",
+      "city": "Tupã",
+      "state": "SP",
+      "address": "Rua Aimorés, 1695 - Centro, Tupã - SP",
+      "neighborhood": "Centro",
+      "postalCode": "17600-011",
+      "phone": "(14) 3496-5000",
+      "whatsapp": "5514997115000",
+      "email": "contato@imobiliariatupan.com.br",
+      "website": "https://imobiliariatupan.com.br",
+      "instagram": "@imobiliariatupan",
+      "contactPerson": "Diretoria de Vendas / Locação",
+      "stage": "novo",
+      "score": 94,
+      "estimatedValue": 2500,
+      "recurrence": false,
+      "recommendedServiceId": "landing",
+      "matchReason": "Imobiliária de grande tradição em Tupã situada na Rua Aimorés. Possui carteira robusta de casas e lançamentos residenciais, mas seu portal imobiliário tem centenas de imóveis dispersos que confundem os compradores. Desenvolver Landing Pages dedicadas para cada empreendimento e loteamento em Tupã vai gerar contatos qualificados direto para os corretores.",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Portal imobiliário clássico com busca tradicional",
+        "metaAdsActive": true,
+        "googleAdsActive": false,
+        "instagramFollowers": "6.1k",
+        "socialQuality": "Carrosséis de imóveis sem chamada persuasiva",
+        "gaps": [
+          "Anúncios de loteamentos e casas levam para o portal genérico",
+          "Corretores recebem contatos de curiosos sem pré-qualificação financeira",
+          "Sem páginas de alta velocidade focadas em novos loteamentos em Tupã"
+        ],
+        "strengths": [
+          "Localização central excelente na Rua Aimorés em Tupã",
+          "Equipe de corretores estabelecida e credibilidade histórica"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Acompanho a liderança da Imobiliária Tupan no mercado da Rua Aimorés e em toda a cidade. Notamos que vocês promovem imóveis e loteamentos excelentes, mas enviar os interessados para o portal com centenas de opções dispersa a atenção do comprador. Na Lastro criamos Landing Pages exclusivas por condomínio/lançamento que entregam contatos prontos para agendamento de visita no WhatsApp dos seus corretores. Que tal vermos um modelo juntos?",
+        "email": "À Diretoria da Imobiliária Tupan,\n\nConstruir páginas exclusivas de alta conversão para os lançamentos de Tupã é a maneira mais eficiente de baratear o custo por lead qualificado.\n\nPodemos apresentar o método da Lastro nesta semana?",
+        "phoneTalkingPoints": "Falar sobre a taxa de conversão de páginas dedicadas para loteamentos e condomínios fechados em Tupã."
+      },
+      "interactions": [
+        {
+          "id": "int-tup-001",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada no Centro de Tupã/SP (Rua Aimorés). Perfeita para Landing Pages de Lançamentos."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-quintana-001",
+      "companyName": "Supermercado Santa Rita Quintana",
+      "tradeName": "Supermercado Santa Rita",
+      "segment": "Comércio Varejista & Alimentos",
+      "city": "Quintana",
+      "state": "SP",
+      "address": "Rua Sete de Setembro, 203 - Centro, Quintana - SP",
+      "neighborhood": "Centro",
+      "postalCode": "17670-000",
+      "phone": "(14) 3488-1200",
+      "whatsapp": "551434881200",
+      "email": "contato@supermercadosantarita.com.br",
+      "website": "",
+      "instagram": "@supermercadosantarita_quintana",
+      "contactPerson": "Proprietário / Gerência",
+      "stage": "novo",
+      "score": 87,
+      "estimatedValue": 2000,
+      "recurrence": true,
+      "recommendedServiceId": "redes",
+      "matchReason": "Principal mercado do município de Quintana na Rua Sete de Setembro. Não possui presença web e suas redes sociais contam com fotos esporádicas de baixa qualidade. Gestão profissional de Redes Sociais com linha editorial de ofertas e cardápio de padaria/açougue consolidará o mercado como referência absoluta na cidade e na zona rural.",
+      "digitalAudit": {
+        "hasWebsite": false,
+        "websiteQuality": "Não possui",
+        "metaAdsActive": false,
+        "googleAdsActive": false,
+        "instagramFollowers": "980",
+        "socialQuality": "Fotos amadoras de produtos sem identidade visual",
+        "gaps": [
+          "Falta de padronização visual nas artes das promoções",
+          "Inexistência de linha editorial de receitas e destaques de hortifruti",
+          "Ausência de lista VIP de ofertas no WhatsApp"
+        ],
+        "strengths": [
+          "Principal supermercado de compras diárias da população de Quintana",
+          "Atendimento acolhedor e próximo dos moradores"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Conheço a importância do Supermercado Santa Rita para a cidade de Quintana. Hoje, a maioria dos moradores passa horas no Instagram e no WhatsApp. Na Lastro criamos uma linha editorial profissional e artes modernas para que o Santa Rita seja visto como um mercado moderno, atraindo as famílias da cidade e produtores rurais da região para as compras semanais. Gostariam de ver uma prévia de como ficaria o visual?",
+        "email": "Ao Supermercado Santa Rita Quintana,\n\nProfissionalizar a presença visual e o anúncio de ofertas em Quintana traz retorno imediato no caixa.\n\nA Lastro tem soluções completas de redes sociais para varejo.",
+        "phoneTalkingPoints": "Comentar a localização na Rua Sete de Setembro; mostrar que um visual profissional valoriza os produtos e atrai mais clientes."
+      },
+      "interactions": [
+        {
+          "id": "int-quin-001",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada no Centro de Quintana/SP (Rua Sete de Setembro). Oportunidade para Redes Sociais e autoridade."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-bauru-001",
+      "companyName": "Cantina Fratello Bauru",
+      "tradeName": "Cantina Fratello",
+      "segment": "Gastronomia & Restaurantes",
+      "city": "Bauru",
+      "state": "SP",
+      "address": "Rua Antônio Alves, 24-64 - Jardim Aeroporto, Bauru - SP",
+      "neighborhood": "Jardim Aeroporto",
+      "postalCode": "17017-060",
+      "phone": "(14) 3234-8072",
+      "whatsapp": "5514998768072",
+      "email": "contato@cantinafratello.com.br",
+      "website": "https://cantinafratello.com.br",
+      "instagram": "@cantinafratello",
+      "contactPerson": "Chef / Gestão de Salão e Eventos",
+      "stage": "novo",
+      "score": 92,
+      "estimatedValue": 2500,
+      "recurrence": true,
+      "recommendedServiceId": "redes",
+      "matchReason": "Restaurante italiano consagrado em Bauru na Rua Antônio Alves (área nobre). O cardápio e os pratos são excelentes, mas o perfil do Instagram tem produção visual irregular e não promove ativamente o salão para eventos corporativos e reservas antecipadas. Redes Sociais de alta performance com produção de vídeos curtos (Reels) elevará o ticket médio e manterá o salão lotado mesmo em dias úteis.",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Institucional básico com cardápio estático",
+        "metaAdsActive": false,
+        "googleAdsActive": false,
+        "instagramFollowers": "14.5k",
+        "socialQuality": "Fotos pontuais, falta de apetite appeal e vídeos de bastidores",
+        "gaps": [
+          "Zero campanhas de geolocalização no almoço e jantar para o público classe A de Bauru",
+          "Falta de funil para reserva rápida de mesas pelo WhatsApp",
+          "Pouca divulgação de cartas de vinhos e espaço para comemorações"
+        ],
+        "strengths": [
+          "Culinária de altíssimo padrão reconhecida pelos bauruenses",
+          "Ambiente sofisticado com excelente clientela"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Olá! Acompanho a excelência gastronômica da Cantina Fratello na Antônio Alves em Bauru. Sabemos que a experiência de vocês é fantástica, mas um restaurante desse nível precisa de vídeos que despertem desejo imediato no Instagram e campanhas de geolocalização para atrair reservas de almoço executivo e jantares. Na Lastro cuidamos da produção e estratégia para lotar o salão de clientes qualificados. Que tal uma breve apresentação?",
+        "email": "À Direção da Cantina Fratello Bauru,\n\nTransformar o perfil da Cantina em uma vitrine irresistível para o público de Bauru é a nossa especialidade.\n\nPodemos conversar nesta semana?",
+        "phoneTalkingPoints": "Elogiar os pratos e localização no Jardim Aeroporto; falar sobre campanhas direcionadas para moradores de bairros nobres em Bauru."
+      },
+      "interactions": [
+        {
+          "id": "int-bau-001",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada no Jardim Aeroporto em Bauru/SP (Rua Antônio Alves). Classificada em Descoberta (Score 92/100)."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    },
+    {
+      "id": "lead-bauru-002",
+      "companyName": "Camargo & Vieira Advogados Associados",
+      "tradeName": "Camargo & Vieira Advogados",
+      "segment": "Advocacia & Direito Corporativo",
+      "city": "Bauru",
+      "state": "SP",
+      "address": "Av. Getúlio Vargas, 20-30 - Parque Jardim Europa, Bauru - SP",
+      "neighborhood": "Parque Jardim Europa",
+      "postalCode": "17017-383",
+      "phone": "(14) 3227-2500",
+      "whatsapp": "5514991222500",
+      "email": "contato@camargovieira.adv.br",
+      "website": "https://camargovieira.adv.br",
+      "instagram": "@camargovieiraadvogados",
+      "contactPerson": "Sócios Titulares / Gestão Jurídica",
+      "stage": "novo",
+      "score": 95,
+      "estimatedValue": 3500,
+      "recurrence": true,
+      "recommendedServiceId": "trafego",
+      "matchReason": "Banca de advocacia de grande prestígio localizada na Av. Getúlio Vargas em Bauru. Atua com foco empresarial, tributário e cível, porém a captação ainda depende de networking e indicações lentas. Campanhas estratégicas de Google Ads em conformidade estrita com o Provimento 205/2021 da OAB para termos de consultoria jurídica empresarial colocarão o escritório no radar de diretores e empresários de todo o centro-oeste paulista (Bauru, Marília, Pompeia, Tupã).",
+      "digitalAudit": {
+        "hasWebsite": true,
+        "websiteQuality": "Institucional tradicional, sem páginas dedicadas por área de atuação",
+        "metaAdsActive": false,
+        "googleAdsActive": false,
+        "instagramFollowers": "3.8k",
+        "socialQuality": "Artigos jurídicos formais",
+        "gaps": [
+          "Ausência nas primeiras posições de pesquisa do Google para termos jurídicos corporativos",
+          "Falta de páginas de destino (Landing Pages) dedicadas a consultoria tributária e societária",
+          "Inexistência de captação ativa de indústrias e empresas regionais"
+        ],
+        "strengths": [
+          "Endereço de altíssimo prestígio na Av. Getúlio Vargas em Bauru",
+          "Corpo jurídico altamente qualificado com histórico de vitórias"
+        ]
+      },
+      "pitchCopy": {
+        "whatsapp": "Dr., tudo bem? Acompanho a reputação de destaque do Camargo & Vieira na Getúlio Vargas em Bauru. Sabemos que a captação no meio jurídico exige total ética e sobriedade perante a OAB. Na Lastro criamos estruturas de Google Ads 100% alinhadas ao Código de Ética que conectam sua banca a empresários e diretores que já estão buscando consultoria tributária e societária ativamente no Google na região de Bauru e Marília. Podemos alinhar uma conversa rápida de 10 min?",
+        "email": "Aos Sócios do Camargo & Vieira Advogados,\n\nIdentificamos grande volume de pesquisas de empresários no Google na região de Bauru que buscam soluções societárias e tributárias sem encontrar o escritório nas primeiras posições.\n\nA Lastro é especialista em estratégias de marketing jurídico de alta performance.\n\nPodemos conversar nesta quinta?",
+        "phoneTalkingPoints": "Ressaltar o Provimento da OAB; destacar que empresários da região estão buscando assessoria no Google antes de fechar contratos."
+      },
+      "interactions": [
+        {
+          "id": "int-bau-002",
+          "date": "2026-10-28T18:14:32.849Z",
+          "type": "ai_register",
+          "author": "Agente Lastro Hunter",
+          "content": "Mapeada na Av. Getúlio Vargas, Bauru/SP. Oportunidade nobre para Google Ads Corporativo."
+        }
+      ],
+      "createdAt": "2026-10-28T18:14:32.849Z",
+      "updatedAt": "2026-10-28T18:14:32.849Z"
+    }
+  ],
+  "settings": {
+    "geminiApiKey": "AQ.Ab8RN6LDoNKakBLoRcenth8K4YDyIW8QLYEBNZrhBancZNmseA",
+    "geminiModel": "gemini-2.5-flash",
+    "agencyName": "Lastro Marketing",
+    "agencyPhone": "5514996602153",
+    "agencyEmail": "contato@lastromarketing.com",
+    "autoQualifyThreshold": 80,
+    "defaultCity": "Pompeia, SP",
+    "targetRegion": "Alta Paulista e Centro-Oeste Paulista (Pompeia, Marília, Quintana, Tupã, Bauru - DDD 14)"
+  },
+  "agentLogs": [
+    {
+      "id": "log-1793214772705",
+      "timestamp": "2026-10-28T19:12:52.705Z",
+      "action": "Prospecção Concluída (Gemini AI)",
+      "details": "Mapeadas 4 empresas com análise de presença digital na região."
+    },
+    {
+      "id": "log-1793214726046",
+      "timestamp": "2026-10-28T19:12:06.046Z",
+      "action": "Prospecção Regional Iniciada",
+      "details": "Varredura de mercado para \"roupas\" em \"Pompeia, SP\" (quantidade: 4)."
+    },
+    {
+      "id": "log-1793211961204",
+      "timestamp": "2026-10-28T18:26:01.204Z",
+      "action": "Prospecção Concluída (Gemini AI)",
+      "details": "Mapeadas 4 empresas com análise de presença digital na região."
+    },
+    {
+      "id": "log-1793211937177",
+      "timestamp": "2026-10-28T18:25:37.177Z",
+      "action": "Prospecção Regional Iniciada",
+      "details": "Varredura de mercado para \"Clínicas Odontológicas & Saúde\" em \"Pompeia, SP\" (quantidade: 4)."
+    },
+    {
+      "id": "log-1793211818058",
+      "timestamp": "2026-10-28T18:23:38.058Z",
+      "action": "Prospecção Concluída (Gemini AI)",
+      "details": "Mapeadas 2 empresas com análise de presença digital na região."
+    },
+    {
+      "id": "log-1793211800961",
+      "timestamp": "2026-10-28T18:23:20.961Z",
+      "action": "Prospecção Regional Iniciada",
+      "details": "Varredura de mercado para \"Com�rcio & Sa�de\" em \"Pompeia, SP\" (quantidade: 2)."
+    },
+    {
+      "id": "log-regional-init",
+      "timestamp": "2026-10-28T18:14:32.853Z",
+      "action": "Base Regional Atualizada",
+      "details": "CRM carregado com empresas oficiais de Pompeia, Marília, Quintana, Tupã e Bauru em estágio de Descoberta."
+    }
+  ]
+}

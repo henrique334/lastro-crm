@@ -1,0 +1,130 @@
+/* Estilos Personalizados - Lastro CRM & Hunter AI */
+
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #030303;
+  --bg-surface: #0a0a0a;
+  --bg-card: #121212;
+  --border-color: #1f1f1f;
+  --brand-blue: #0057ff;
+  --brand-light: #4d8bff;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg-dark);
+  color: #e5e7eb;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Clash Display', sans-serif;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 87, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 87, 255, 0.2);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0057ff;
+}
+
+/* Kanban Drag & Drop */
+.kanban-column {
+  min-height: calc(100vh - 270px);
+  transition: background-color 0.2s ease;
+}
+
+.kanban-column.drag-over {
+  background-color: rgba(0, 87, 255, 0.08);
+  border-color: rgba(0, 87, 255, 0.5) !important;
+}
+
+.lead-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  cursor: grab;
+}
+
+.lead-card:active {
+  cursor: grabbing;
+}
+
+.lead-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.lead-card.dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+/* Animações e pulsos */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Badges de Serviços da Lastro */
+.badge-service-sites {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge-service-trafego {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-service-redes {
+  background-color: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.badge-service-id_visual {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.badge-service-landing {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-service-consultoria {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
