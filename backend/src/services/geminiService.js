@@ -67,7 +67,9 @@ class GeminiService {
 
         if (!response.ok) {
           const errorText = await response.text();
-          throw new Error(`Erro API Gemini (${response.status} com ${model}): ${errorText}`);
+          const err = new Error(`Erro API Gemini (${response.status} com ${model}): ${errorText}`);
+          err.status = response.status;
+          throw err;
         }
 
         const data = await response.json();
@@ -80,7 +82,10 @@ class GeminiService {
       } catch (err) {
         lastError = err;
         console.warn(`Tentativa com modelo ${model} falhou:`, err.message);
-        // Continuar para o próximo modelo da lista
+        // Se for erro de autenticação (401/403), a chave é inválida para todos os modelos: interromper imediatamente
+        if (err.status === 401 || err.status === 403) {
+          break;
+        }
       }
     }
 
