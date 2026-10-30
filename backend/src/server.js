@@ -60,7 +60,7 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`
   ======================================================
-  🚀 LASTRO CRM & AGENTE HUNTER INICIALIZADO COM SUCESSO!
+  🚀 LASTRO CRM & AGENTE HUNTER v1.0.5 INICIALIZADO COM SUCESSO!
   ======================================================
   🌐 Painel do CRM: http://localhost:${PORT}
   📡 API Backend:   http://localhost:${PORT}/api/leads

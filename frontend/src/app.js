@@ -832,15 +832,30 @@ function openLeadModal(leadId) {
 }
 
 function switchLeadModalTab(tab) {
-  ['audit', 'pitch', 'history'].forEach(t => {
+  const tabs = ['audit', 'pitch', 'history'];
+  tabs.forEach(t => {
     const btn = document.getElementById(`modal-tab-${t}`);
     const content = document.getElementById(`modal-content-${t}`);
-    if (t === tab) {
-      if (btn) btn.className = 'modal-tab-btn py-3.5 px-2 border-b-2 border-brand-blue text-white bg-brand-blue/10 flex items-center justify-center gap-2 transition font-bold whitespace-nowrap';
-      if (content) content.classList.remove('hidden');
-    } else {
-      if (btn) btn.className = 'modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition whitespace-nowrap';
-      if (content) content.classList.add('hidden');
+    const isActive = (t === tab);
+
+    if (btn) {
+      if (isActive) {
+        btn.classList.add('border-brand-blue', 'text-white', 'bg-brand-blue/10');
+        btn.classList.remove('border-transparent', 'text-gray-400', 'hover:bg-white/5');
+      } else {
+        btn.classList.remove('border-brand-blue', 'text-white', 'bg-brand-blue/10');
+        btn.classList.add('border-transparent', 'text-gray-400', 'hover:bg-white/5');
+      }
+    }
+
+    if (content) {
+      if (isActive) {
+        content.classList.remove('hidden');
+        content.style.display = 'block';
+      } else {
+        content.classList.add('hidden');
+        content.style.display = 'none';
+      }
     }
   });
 }

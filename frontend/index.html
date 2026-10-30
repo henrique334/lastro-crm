@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR" class="dark notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
   <title>Lastro Growth CRM | Agente de IA Hunter</title>
   
   <!-- Fontes Premium: Clash Display & Manrope -->
@@ -47,7 +48,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Estilos Customizados -->
-  <link rel="stylesheet" href="src/styles.css?v=1.0.4">
+  <link rel="stylesheet" href="src/styles.css?v=1.0.5">
 </head>
 <body class="bg-[#030303] text-gray-200 antialiased min-h-screen flex flex-col selection:bg-brand-blue selection:text-white">
 
@@ -486,7 +487,7 @@
   </main>
 
   <!-- MODAL: DETALHES DO LEAD & PITCH COMERCIAL -->
-  <div id="modal-lead-details" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div id="modal-lead-details" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 notranslate" translate="no">
     <div class="bg-surface border border-surface_border rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
       
       <!-- Cabeçalho do Modal com Seletor Visual de Etapas -->
@@ -525,18 +526,18 @@
       </div>
 
       <!-- Navegação Interna do Modal (Segmentada e Perfeitamente Alinhada em 3 Colunas) -->
-      <div class="grid grid-cols-3 border-b border-surface_border bg-dark/50 text-xs font-semibold select-none">
-        <button type="button" onclick="switchLeadModalTab('audit')" id="modal-tab-audit" class="modal-tab-btn py-3.5 px-2 border-b-2 border-brand-blue text-white bg-brand-blue/10 flex items-center justify-center gap-2 transition">
-          <i class="fa-solid fa-magnifying-glass-chart text-brand-light"></i>
-          <span class="truncate">Diagnóstico</span>
+      <div class="grid grid-cols-3 border-b border-surface_border bg-dark/50 text-xs font-semibold select-none notranslate" translate="no">
+        <button type="button" onclick="switchLeadModalTab('audit')" id="modal-tab-audit" class="modal-tab-btn py-3.5 px-2 border-b-2 border-brand-blue text-white bg-brand-blue/10 flex items-center justify-center gap-1.5 transition min-w-0 notranslate" translate="no">
+          <i class="fa-solid fa-magnifying-glass-chart text-brand-light flex-shrink-0"></i>
+          <span class="truncate notranslate font-semibold" translate="no">Diagnóstico</span>
         </button>
-        <button type="button" onclick="switchLeadModalTab('pitch')" id="modal-tab-pitch" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition">
-          <i class="fa-solid fa-comments-dollar text-green-400"></i>
-          <span class="truncate">Abordagem & Script</span>
+        <button type="button" onclick="switchLeadModalTab('pitch')" id="modal-tab-pitch" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-1.5 transition min-w-0 notranslate" translate="no">
+          <i class="fa-solid fa-comments-dollar text-green-400 flex-shrink-0"></i>
+          <span class="truncate notranslate font-semibold" translate="no">Abordagem & Script</span>
         </button>
-        <button type="button" onclick="switchLeadModalTab('history')" id="modal-tab-history" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition">
-          <i class="fa-solid fa-timeline text-amber-400"></i>
-          <span class="truncate">Histórico & Notas</span>
+        <button type="button" onclick="switchLeadModalTab('history')" id="modal-tab-history" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-1.5 transition min-w-0 notranslate" translate="no">
+          <i class="fa-solid fa-timeline text-amber-400 flex-shrink-0"></i>
+          <span class="truncate notranslate font-semibold" translate="no">Histórico & Notas</span>
         </button>
       </div>
 
@@ -972,6 +973,6 @@
   <div id="toast-container" class="fixed bottom-6 left-6 z-50 space-y-2 pointer-events-none"></div>
 
   <!-- Script da Aplicação (Com versão anti-cache) -->
-  <script src="src/app.js?v=1.0.4"></script>
+  <script src="src/app.js?v=1.0.5"></script>
 </body>
 </html>
