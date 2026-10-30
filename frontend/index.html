@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Estilos Customizados -->
-  <link rel="stylesheet" href="src/styles.css?v=1.0.3">
+  <link rel="stylesheet" href="src/styles.css?v=1.0.4">
 </head>
 <body class="bg-[#030303] text-gray-200 antialiased min-h-screen flex flex-col selection:bg-brand-blue selection:text-white">
 
@@ -556,28 +556,89 @@
             </p>
           </div>
 
-          <!-- Localização & Contatos Verificados -->
-          <div class="p-4 rounded-2xl bg-card border border-surface_border">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
-              <i class="fa-solid fa-map-pin text-brand-light mr-1"></i> Localização & Canais Oficiais de Contato (DDD 14)
-            </span>
+          <!-- Localização & Canais Oficiais de Contato (DDD 14) -->
+          <div class="p-4 rounded-2xl bg-card border border-surface_border select-none" translate="no">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-map-pin text-brand-light"></i> Localização & Canais Oficiais de Contato (DDD 14)
+              </span>
+              <span class="text-[10px] text-gray-500 font-semibold">Clique para abrir ou copiar</span>
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div>
-                <span class="text-gray-500 block text-[10px] uppercase font-bold">Endereço Completo:</span>
-                <p id="modal-lead-address" class="text-white font-medium">Carregando endereço...</p>
+              
+              <!-- 1. Endereço Completo -->
+              <div class="p-3 rounded-xl bg-dark/60 border border-surface_border/80 hover:border-brand-blue/50 transition group">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-500 text-[10px] uppercase font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-brand-light text-[10px]"></i> Endereço Completo:
+                  </span>
+                  <button type="button" onclick="copyContactDetail('address')" title="Copiar endereço" class="text-gray-500 hover:text-white text-[10px] transition p-1">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <div id="modal-lead-address-container">
+                  <a id="modal-lead-address-link" href="#" target="_blank" class="text-white hover:text-brand-light font-medium text-xs flex items-center justify-between gap-1 group-hover:underline transition">
+                    <span id="modal-lead-address" class="truncate">Carregando endereço...</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gray-500 group-hover:text-brand-light flex-shrink-0"></i>
+                  </a>
+                </div>
               </div>
-              <div>
-                <span class="text-gray-500 block text-[10px] uppercase font-bold">Telefone / WhatsApp:</span>
-                <p id="modal-lead-phones" class="text-white font-medium">Carregando telefones...</p>
+
+              <!-- 2. Telefone & WhatsApp -->
+              <div class="p-3 rounded-xl bg-dark/60 border border-surface_border/80 hover:border-green-500/50 transition group">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-500 text-[10px] uppercase font-bold flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-[10px]"></i> Telefone / WhatsApp:
+                  </span>
+                  <button type="button" onclick="copyContactDetail('phone')" title="Copiar telefone" class="text-gray-500 hover:text-white text-[10px] transition p-1">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <div id="modal-lead-phone-container">
+                  <a id="modal-lead-phone-link" href="#" target="_blank" class="text-white hover:text-green-400 font-medium text-xs flex items-center justify-between gap-1 group-hover:underline transition">
+                    <span id="modal-lead-phones" class="truncate">Carregando telefones...</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gray-500 group-hover:text-green-400 flex-shrink-0"></i>
+                  </a>
+                </div>
               </div>
-              <div>
-                <span class="text-gray-500 block text-[10px] uppercase font-bold">Instagram Oficial:</span>
-                <p id="modal-lead-instagram" class="text-brand-light font-medium">Carregando Instagram...</p>
+
+              <!-- 3. Instagram Oficial -->
+              <div class="p-3 rounded-xl bg-dark/60 border border-surface_border/80 hover:border-pink-500/50 transition group">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-500 text-[10px] uppercase font-bold flex items-center gap-1">
+                    <i class="fa-brands fa-instagram text-pink-400 text-[10px]"></i> Instagram Oficial:
+                  </span>
+                  <button type="button" onclick="copyContactDetail('instagram')" title="Copiar Instagram" class="text-gray-500 hover:text-white text-[10px] transition p-1">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <div id="modal-lead-instagram-container">
+                  <a id="modal-lead-instagram-link" href="#" target="_blank" class="text-pink-400 hover:text-pink-300 font-medium text-xs flex items-center justify-between gap-1 group-hover:underline transition">
+                    <span id="modal-lead-instagram" class="truncate">Carregando Instagram...</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gray-500 group-hover:text-pink-400 flex-shrink-0"></i>
+                  </a>
+                </div>
               </div>
-              <div>
-                <span class="text-gray-500 block text-[10px] uppercase font-bold">Website Oficial:</span>
-                <p id="modal-lead-website" class="text-brand-light font-medium">Carregando website...</p>
+
+              <!-- 4. Website Oficial -->
+              <div class="p-3 rounded-xl bg-dark/60 border border-surface_border/80 hover:border-blue-500/50 transition group">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-500 text-[10px] uppercase font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-globe text-blue-400 text-[10px]"></i> Website Oficial:
+                  </span>
+                  <button type="button" onclick="copyContactDetail('website')" title="Copiar site" class="text-gray-500 hover:text-white text-[10px] transition p-1">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <div id="modal-lead-website-container">
+                  <a id="modal-lead-website-link" href="#" target="_blank" class="text-brand-light hover:text-white font-medium text-xs flex items-center justify-between gap-1 group-hover:underline transition">
+                    <span id="modal-lead-website" class="truncate">Carregando website...</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gray-500 group-hover:text-brand-light flex-shrink-0"></i>
+                  </a>
+                </div>
               </div>
+
             </div>
           </div>
 
@@ -911,6 +972,6 @@
   <div id="toast-container" class="fixed bottom-6 left-6 z-50 space-y-2 pointer-events-none"></div>
 
   <!-- Script da Aplicação (Com versão anti-cache) -->
-  <script src="src/app.js?v=1.0.3"></script>
+  <script src="src/app.js?v=1.0.4"></script>
 </body>
 </html>

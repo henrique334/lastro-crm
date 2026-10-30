@@ -731,24 +731,53 @@ function openLeadModal(leadId) {
   document.getElementById('modal-recommended-service-title').textContent = `${service.name} (Valor: R$ ${(lead.estimatedValue || 2500).toLocaleString('pt-BR')})`;
   document.getElementById('modal-recommended-service-reason').textContent = lead.matchReason || 'Oportunidade identificada de crescimento.';
 
-  // Localização & Contatos Verificados
+  // Localização & Contatos Verificados (Totalmente interativos com links e anti-sumiço)
+  const fullAddress = lead.address || `${lead.neighborhood ? lead.neighborhood + ', ' : ''}${lead.city} - SP`;
   const addrEl = document.getElementById('modal-lead-address');
-  if (addrEl) {
-    addrEl.textContent = lead.address || `${lead.neighborhood ? lead.neighborhood + ', ' : ''}${lead.city} - SP`;
+  const addrLink = document.getElementById('modal-lead-address-link');
+  if (addrEl && addrLink) {
+    addrEl.textContent = fullAddress;
+    addrLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
   }
+
+  // Telefone / WhatsApp
+  const cleanWa = (lead.whatsapp || lead.phone || '').replace(/\D/g, '');
   const phonesEl = document.getElementById('modal-lead-phones');
-  if (phonesEl) {
+  const phonesLink = document.getElementById('modal-lead-phone-link');
+  if (phonesEl && phonesLink) {
     phonesEl.textContent = `${lead.phone || '(14) 3452-0000'}${lead.whatsapp ? ' • WA: ' + lead.whatsapp : ''}`;
+    phonesLink.href = cleanWa ? `https://wa.me/${cleanWa}` : `tel:${(lead.phone || '').replace(/\D/g, '')}`;
   }
+
+  // Instagram Oficial
   const instaEl = document.getElementById('modal-lead-instagram');
-  if (instaEl) {
-    instaEl.textContent = lead.instagram || 'Não possui perfil oficial';
+  const instaLink = document.getElementById('modal-lead-instagram-link');
+  if (instaEl && instaLink) {
+    if (lead.instagram && lead.instagram !== 'Não possui' && !lead.instagram.toLowerCase().includes('não possui')) {
+      const cleanHandle = lead.instagram.replace('@', '').trim();
+      instaEl.textContent = lead.instagram.startsWith('@') ? lead.instagram : `@${lead.instagram}`;
+      instaLink.href = `https://instagram.com/${cleanHandle}`;
+      instaLink.classList.remove('pointer-events-none', 'opacity-60');
+    } else {
+      instaEl.textContent = 'Sem perfil oficial';
+      instaLink.href = '#';
+      instaLink.classList.add('pointer-events-none', 'opacity-60');
+    }
   }
+
+  // Website Oficial
   const webEl = document.getElementById('modal-lead-website');
-  if (webEl) {
-    webEl.innerHTML = lead.website 
-      ? `<a href="${lead.website}" target="_blank" class="underline hover:text-white">${lead.website}</a>`
-      : 'Não possui site institucional';
+  const webLink = document.getElementById('modal-lead-website-link');
+  if (webEl && webLink) {
+    if (lead.website && lead.website.trim() && lead.website !== 'Não possui') {
+      webEl.textContent = lead.website.replace(/^https?:\/\//, '');
+      webLink.href = lead.website.startsWith('http') ? lead.website : `https://${lead.website}`;
+      webLink.classList.remove('pointer-events-none', 'opacity-60');
+    } else {
+      webEl.textContent = 'Não possui site oficial';
+      webLink.href = '#';
+      webLink.classList.add('pointer-events-none', 'opacity-60');
+    }
   }
 
   const auditWeb = document.getElementById('modal-audit-website');
@@ -785,9 +814,9 @@ function openLeadModal(leadId) {
 
   // Botão WhatsApp direto no modal
   const btnWa = document.getElementById('btn-modal-open-whatsapp');
-  const cleanWa = (lead.whatsapp || '').replace(/\D/g, '');
-  if (cleanWa) {
-    btnWa.href = `https://wa.me/${cleanWa}?text=${encodeURIComponent(waPitch)}`;
+  const modalWaClean = (lead.whatsapp || '').replace(/\D/g, '');
+  if (modalWaClean) {
+    btnWa.href = `https://wa.me/${modalWaClean}?text=${encodeURIComponent(waPitch)}`;
     btnWa.classList.remove('hidden');
   } else {
     btnWa.classList.add('hidden');
@@ -1078,6 +1107,31 @@ function copyModalPitch(type) {
   const text = document.getElementById(elementId).textContent.trim();
   navigator.clipboard.writeText(text);
   showToast('Copiado!', `Texto de ${type} copiado para a área de transferência.`, 'info');
+}
+
+function copyContactDetail(type) {
+  if (!state.currentLead) return;
+  let text = '';
+  let label = '';
+
+  if (type === 'address') {
+    text = state.currentLead.address || `${state.currentLead.city} - SP`;
+    label = 'Endereço';
+  } else if (type === 'phone') {
+    text = state.currentLead.whatsapp || state.currentLead.phone || '';
+    label = 'Telefone / WhatsApp';
+  } else if (type === 'instagram') {
+    text = state.currentLead.instagram || '';
+    label = 'Instagram';
+  } else if (type === 'website') {
+    text = state.currentLead.website || '';
+    label = 'Website';
+  }
+
+  if (text) {
+    navigator.clipboard.writeText(text);
+    showToast('Copiado!', `${label} copiado para a área de transferência.`, 'info');
+  }
 }
 
 // ==========================================
