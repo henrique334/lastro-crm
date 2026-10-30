@@ -12,9 +12,17 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Desativar cache para sempre refletir as alterações no navegador imediatamente
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+});
+
 // Servir frontend estático
 const frontendDir = path.join(__dirname, '..', '..', 'frontend');
-app.use(express.static(frontendDir));
+app.use(express.static(frontendDir, { etag: false, maxAge: 0 }));
 
 // --- ROTAS DA API ---
 

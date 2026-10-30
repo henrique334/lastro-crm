@@ -38,11 +38,16 @@
     }
   </script>
 
+  <!-- Anti-Cache para Navegadores (Opera / Chrome / Edge) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Estilos Customizados -->
-  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet" href="src/styles.css?v=1.0.3">
 </head>
 <body class="bg-[#030303] text-gray-200 antialiased min-h-screen flex flex-col selection:bg-brand-blue selection:text-white">
 
@@ -905,7 +910,7 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="fixed bottom-6 left-6 z-50 space-y-2 pointer-events-none"></div>
 
-  <!-- Script da Aplicação -->
-  <script src="src/app.js"></script>
+  <!-- Script da Aplicação (Com versão anti-cache) -->
+  <script src="src/app.js?v=1.0.3"></script>
 </body>
 </html>
