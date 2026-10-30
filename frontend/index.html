@@ -236,10 +236,10 @@
     
     <!-- ABA 1: FUNIL KANBAN -->
     <section id="view-kanban" class="tab-content block">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4 items-start overflow-x-auto pb-6">
+      <div class="kanban-scroll-container flex gap-4 items-start overflow-x-auto pb-6 pt-1 select-none w-full">
         
         <!-- 1. Novos / Descoberta -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-surface_border rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
@@ -253,7 +253,7 @@
         </div>
 
         <!-- 2. Qualificados pela IA -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-brand-blue/30 rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-brand-blue/40 rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg shadow-brand-blue/5">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-brand-blue/20">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
@@ -266,7 +266,7 @@
         </div>
 
         <!-- 3. Primeiro Contato Feito -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-surface_border rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
@@ -279,7 +279,7 @@
         </div>
 
         <!-- 4. Diagnóstico Agendado -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-surface_border rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
@@ -292,7 +292,7 @@
         </div>
 
         <!-- 5. Proposta Enviada -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-surface_border rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
@@ -305,7 +305,7 @@
         </div>
 
         <!-- 6. Em Negociação -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-surface_border rounded-2xl p-3 min-w-[240px]">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
           <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
@@ -318,8 +318,8 @@
         </div>
 
         <!-- 7. Fechado / Ganho -->
-        <div class="kanban-stage flex flex-col bg-surface/60 border border-emerald-500/30 rounded-2xl p-3 min-w-[240px]">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-emerald-500/20">
+        <div class="kanban-stage flex flex-col bg-surface/80 border border-emerald-500/40 rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg shadow-emerald-500/5">
+          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-emerald-500/30">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
               <h3 class="font-bold text-xs uppercase tracking-wider text-emerald-400">Fechado / Ganho</h3>
@@ -484,39 +484,54 @@
   <div id="modal-lead-details" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-surface border border-surface_border rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
       
-      <!-- Cabeçalho do Modal -->
-      <div class="p-6 border-b border-surface_border flex justify-between items-start bg-dark/60">
-        <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span id="modal-lead-segment" class="text-xs font-bold text-gray-400 uppercase tracking-wider">Segmento</span>
-            <span class="text-gray-600">•</span>
-            <span id="modal-lead-location" class="text-xs text-gray-400">Cidade, UF</span>
+      <!-- Cabeçalho do Modal com Seletor Visual de Etapas -->
+      <div class="p-6 border-b border-surface_border flex flex-col gap-3 bg-dark/60">
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="modal-lead-segment" class="text-xs font-bold text-gray-400 uppercase tracking-wider">Segmento</span>
+              <span class="text-gray-600">•</span>
+              <span id="modal-lead-location" class="text-xs text-gray-400">Cidade, UF</span>
+            </div>
+            <h2 id="modal-lead-title" class="text-2xl font-heading font-bold text-white">Nome da Empresa</h2>
+            <p id="modal-lead-contact" class="text-xs text-brand-light font-medium mt-0.5">Contato Principal</p>
           </div>
-          <h2 id="modal-lead-title" class="text-2xl font-heading font-bold text-white">Nome da Empresa</h2>
-          <p id="modal-lead-contact" class="text-xs text-brand-light font-medium mt-0.5">Contato Principal</p>
+          
+          <div class="flex items-center gap-3">
+            <div class="text-right">
+              <span class="text-[10px] text-gray-500 uppercase block font-semibold">Fit Score</span>
+              <span id="modal-lead-score" class="text-lg font-heading font-bold text-brand-light">--</span>
+            </div>
+            <button onclick="closeModal('modal-lead-details')" class="text-gray-400 hover:text-white p-2 rounded-lg bg-surface_border/40 transition">
+              <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+          </div>
         </div>
-        
-        <div class="flex items-center gap-3">
-          <div class="text-right">
-            <span class="text-[10px] text-gray-500 uppercase block font-semibold">Fit Score</span>
-            <span id="modal-lead-score" class="text-lg font-heading font-bold text-brand-light">--</span>
+
+        <!-- Seletor Rápido de Etapas (Pipeline Stepper Interativo) -->
+        <div class="pt-3 border-t border-surface_border/60">
+          <span class="text-[10px] font-bold uppercase text-gray-400 block mb-2">
+            <i class="fa-solid fa-arrows-split-up-and-left text-brand-light mr-1"></i> Mudar Etapa no Funil:
+          </span>
+          <div id="modal-stage-stepper" class="flex flex-wrap items-center gap-1.5 text-xs">
+            <!-- Gerado via JS com botões para cada etapa -->
           </div>
-          <button onclick="closeModal('modal-lead-details')" class="text-gray-400 hover:text-white p-2 rounded-lg bg-surface_border/40 transition">
-            <i class="fa-solid fa-xmark text-lg"></i>
-          </button>
         </div>
       </div>
 
-      <!-- Navegação Interna do Modal -->
-      <div class="flex border-b border-surface_border px-6 text-xs font-semibold bg-dark/30">
-        <button onclick="switchLeadModalTab('audit')" id="modal-tab-audit" class="modal-tab-btn py-3 px-4 border-b-2 border-brand-blue text-white transition flex items-center gap-2">
-          <i class="fa-solid fa-magnifying-glass-chart"></i> Diagnóstico Digital
+      <!-- Navegação Interna do Modal (Segmentada e Perfeitamente Alinhada em 3 Colunas) -->
+      <div class="grid grid-cols-3 border-b border-surface_border bg-dark/50 text-xs font-semibold select-none">
+        <button type="button" onclick="switchLeadModalTab('audit')" id="modal-tab-audit" class="modal-tab-btn py-3.5 px-2 border-b-2 border-brand-blue text-white bg-brand-blue/10 flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-magnifying-glass-chart text-brand-light"></i>
+          <span class="truncate">Diagnóstico</span>
         </button>
-        <button onclick="switchLeadModalTab('pitch')" id="modal-tab-pitch" class="modal-tab-btn py-3 px-4 border-b-2 border-transparent text-gray-400 hover:text-white transition flex items-center gap-2">
-          <i class="fa-solid fa-comments-dollar"></i> Abordagem & Copy
+        <button type="button" onclick="switchLeadModalTab('pitch')" id="modal-tab-pitch" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-comments-dollar text-green-400"></i>
+          <span class="truncate">Abordagem & Script</span>
         </button>
-        <button onclick="switchLeadModalTab('history')" id="modal-tab-history" class="modal-tab-btn py-3 px-4 border-b-2 border-transparent text-gray-400 hover:text-white transition flex items-center gap-2">
-          <i class="fa-solid fa-timeline"></i> Histórico & Notas
+        <button type="button" onclick="switchLeadModalTab('history')" id="modal-tab-history" class="modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-timeline text-amber-400"></i>
+          <span class="truncate">Histórico & Notas</span>
         </button>
       </div>
 

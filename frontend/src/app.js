@@ -1,6 +1,17 @@
 // Lastro CRM & Hunter AI - Aplicação Frontend SPA
 const API_BASE = '/api';
 
+// Etapas Oficiais do Funil de Vendas da Lastro
+const PIPELINE_STAGES = [
+  { id: 'novo', name: 'Descoberta' },
+  { id: 'qualificado', name: 'Qualificado (IA)' },
+  { id: 'contato', name: 'Contato Feito' },
+  { id: 'diagnostico', name: 'Diagnóstico' },
+  { id: 'proposta', name: 'Proposta' },
+  { id: 'negociacao', name: 'Negociação' },
+  { id: 'ganho', name: 'Fechado / Ganho' }
+];
+
 // Estado Global
 let state = {
   leads: [],
@@ -154,8 +165,8 @@ function createLeadCardElement(lead) {
   
   // Clique para abrir detalhes
   card.addEventListener('click', (e) => {
-    // Evitar abrir modal se clicou no botão de WhatsApp
-    if (e.target.closest('.btn-wa-direct')) return;
+    // Evitar abrir modal se clicou no botão de WhatsApp ou controles de etapa
+    if (e.target.closest('.btn-wa-direct') || e.target.closest('.card-stage-control')) return;
     openLeadModal(lead.id);
   });
 
@@ -166,6 +177,11 @@ function createLeadCardElement(lead) {
   const waClean = (lead.whatsapp || '').replace(/\D/g, '');
   const pitchText = lead.pitchCopy?.whatsapp || `Olá! Entro em contato da Lastro Marketing para falar com ${lead.contactPerson || 'o responsável'}.`;
   const waUrl = waClean ? `https://wa.me/${waClean}?text=${encodeURIComponent(pitchText)}` : null;
+
+  const currentStageId = lead.stage || 'novo';
+  const stageIdx = PIPELINE_STAGES.findIndex(s => s.id === currentStageId);
+  const prevStage = stageIdx > 0 ? PIPELINE_STAGES[stageIdx - 1] : null;
+  const nextStage = stageIdx >= 0 && stageIdx < PIPELINE_STAGES.length - 1 ? PIPELINE_STAGES[stageIdx + 1] : null;
 
   card.innerHTML = `
     <!-- Topo do Card: Nicho & Score -->
@@ -203,7 +219,7 @@ function createLeadCardElement(lead) {
 
     <!-- Rodapé: Valor & Botão WhatsApp Direto -->
     <div class="pt-2 border-t border-surface_border/80 flex items-center justify-between">
-      <span class="text-xs font-heading font-bold text-gray-300">
+      <span class="text-xs font-heading font-bold text-white">
         R$ ${(lead.estimatedValue || 2500).toLocaleString('pt-BR')}
         ${lead.recurrence ? '<span class="text-[9px] text-gray-500 font-normal">/mês</span>' : ''}
       </span>
@@ -214,6 +230,30 @@ function createLeadCardElement(lead) {
         </a>
       ` : `
         <span class="text-[10px] text-gray-600">Sem WA</span>
+      `}
+    </div>
+
+    <!-- Controle Rápido de Mudança de Etapa no Card -->
+    <div class="card-stage-control pt-2 border-t border-surface_border/60 flex items-center justify-between gap-1 text-[11px]" onclick="event.stopPropagation()">
+      ${prevStage ? `
+        <button type="button" onclick="advanceLeadStage('${lead.id}', '${prevStage.id}', event)" title="Voltar para: ${prevStage.name}" class="w-6 h-6 rounded-lg bg-surface hover:bg-surface_border border border-surface_border text-gray-400 hover:text-white flex items-center justify-center transition">
+          <i class="fa-solid fa-chevron-left text-[8px]"></i>
+        </button>
+      ` : '<div class="w-6"></div>'}
+
+      <select onchange="advanceLeadStage('${lead.id}', this.value, event)" class="bg-dark border border-surface_border text-gray-300 hover:text-white text-[10px] font-semibold rounded-lg px-2 py-1 focus:outline-none focus:border-brand-blue max-w-[125px] truncate cursor-pointer">
+        ${PIPELINE_STAGES.map(s => `<option value="${s.id}" ${currentStageId === s.id ? 'selected' : ''}>${s.name}</option>`).join('')}
+      </select>
+
+      ${nextStage ? `
+        <button type="button" onclick="advanceLeadStage('${lead.id}', '${nextStage.id}', event)" title="Avançar para: ${nextStage.name}" class="px-2 py-1 rounded-lg bg-brand-blue/20 hover:bg-brand-blue border border-brand-blue/40 text-brand-light hover:text-white font-bold transition flex items-center gap-1 text-[10px]">
+          <span>Avançar</span>
+          <i class="fa-solid fa-chevron-right text-[8px]"></i>
+        </button>
+      ` : `
+        <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px] border border-emerald-500/30">
+          ✓ Ganho
+        </span>
       `}
     </div>
   `;
@@ -753,6 +793,7 @@ function openLeadModal(leadId) {
   // Tab 3: Timeline & Interações
   renderModalInteractions(lead.interactions || []);
 
+  renderModalStageStepper();
   switchLeadModalTab('audit');
   openModal('modal-lead-details');
 }
@@ -762,13 +803,120 @@ function switchLeadModalTab(tab) {
     const btn = document.getElementById(`modal-tab-${t}`);
     const content = document.getElementById(`modal-content-${t}`);
     if (t === tab) {
-      if (btn) btn.className = 'modal-tab-btn py-3 px-4 border-b-2 border-brand-blue text-white transition flex items-center gap-2';
+      if (btn) btn.className = 'modal-tab-btn py-3.5 px-2 border-b-2 border-brand-blue text-white bg-brand-blue/10 flex items-center justify-center gap-2 transition font-bold whitespace-nowrap';
       if (content) content.classList.remove('hidden');
     } else {
-      if (btn) btn.className = 'modal-tab-btn py-3 px-4 border-b-2 border-transparent text-gray-400 hover:text-white transition flex items-center gap-2';
+      if (btn) btn.className = 'modal-tab-btn py-3.5 px-2 border-b-2 border-transparent text-gray-400 hover:text-white hover:bg-white/5 flex items-center justify-center gap-2 transition whitespace-nowrap';
       if (content) content.classList.add('hidden');
     }
   });
+}
+
+function renderModalStageStepper() {
+  const container = document.getElementById('modal-stage-stepper');
+  if (!container || !state.currentLead) return;
+
+  const currentStage = state.currentLead.stage || 'novo';
+  const currentIdx = PIPELINE_STAGES.findIndex(s => s.id === currentStage);
+
+  container.innerHTML = PIPELINE_STAGES.map((st, idx) => {
+    const isActive = st.id === currentStage;
+    const isPast = currentIdx > idx;
+
+    let btnClasses = 'px-2.5 py-1.5 rounded-xl font-semibold text-[11px] flex items-center gap-1.5 transition cursor-pointer ';
+    if (isActive) {
+      btnClasses += 'bg-brand-blue text-white shadow-md shadow-brand-blue/30 border border-brand-light/40 font-bold';
+    } else if (isPast) {
+      btnClasses += 'bg-surface border border-emerald-500/30 text-emerald-400 hover:text-white hover:bg-emerald-500/10';
+    } else {
+      btnClasses += 'bg-surface border border-surface_border text-gray-400 hover:text-white hover:border-brand-blue/40';
+    }
+
+    const icon = isActive 
+      ? '<i class="fa-solid fa-circle-check text-white"></i>'
+      : (isPast ? '<i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>' : `<span class="w-4 h-4 rounded-full bg-dark/80 flex items-center justify-center text-[9px] text-gray-400 font-bold">${idx + 1}</span>`);
+
+    return `
+      <button type="button" onclick="advanceLeadStage('${state.currentLead.id}', '${st.id}', event)" class="${btnClasses}" title="Definir etapa: ${st.name}">
+        ${icon}
+        <span>${st.name}</span>
+      </button>
+    `;
+  }).join('');
+}
+
+async function advanceLeadStage(leadId, targetStage, event) {
+  if (event) {
+    if (typeof event.stopPropagation === 'function') event.stopPropagation();
+    if (typeof event.preventDefault === 'function') event.preventDefault();
+  }
+
+  const lead = state.leads.find(l => l.id === leadId);
+  if (!lead) return;
+  if (lead.stage === targetStage) return;
+
+  const previousStage = lead.stage;
+
+  // Atualização otimista no estado local (leads e currentLead)
+  lead.stage = targetStage;
+  if (state.currentLead && state.currentLead.id === leadId) {
+    state.currentLead.stage = targetStage;
+    renderModalStageStepper();
+    const stageSelect = document.getElementById('modal-lead-stage-select');
+    if (stageSelect) stageSelect.value = targetStage;
+  }
+
+  // Renderizar o Kanban e a Tabela imediatamente
+  renderKanban();
+  renderTableLeads();
+  refreshMetrics();
+
+  try {
+    const res = await fetch(`${API_BASE}/leads/${leadId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ stage: targetStage })
+    });
+
+    if (!res.ok) throw new Error('Falha ao atualizar etapa');
+
+    // Registrar interação
+    await fetch(`${API_BASE}/leads/${leadId}/interactions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'stage_change',
+        author: 'Usuário',
+        content: `Lead movido para a etapa: ${getStageName(targetStage)}.`
+      })
+    });
+
+    if (state.currentLead && state.currentLead.id === leadId) {
+      if (!state.currentLead.interactions) state.currentLead.interactions = [];
+      state.currentLead.interactions.unshift({
+        type: 'stage_change',
+        author: 'Usuário',
+        content: `Lead movido para a etapa: ${getStageName(targetStage)}.`,
+        date: new Date().toISOString()
+      });
+      renderModalInteractions(state.currentLead.interactions);
+    }
+
+    showToast('Etapa Atualizada', `Lead movido para "${getStageName(targetStage)}".`, 'success');
+  } catch (err) {
+    console.error('Erro ao atualizar etapa:', err);
+    lead.stage = previousStage;
+    if (state.currentLead && state.currentLead.id === leadId) {
+      state.currentLead.stage = previousStage;
+      renderModalStageStepper();
+      const stageSelect = document.getElementById('modal-lead-stage-select');
+      if (stageSelect) stageSelect.value = previousStage;
+    }
+    renderKanban();
+    renderTableLeads();
+    refreshMetrics();
+    showToast('Erro', 'Não foi possível atualizar a etapa.', 'error');
+  }
 }
 
 function renderModalInteractions(interactions) {
@@ -829,24 +977,7 @@ async function addLeadInteraction() {
 async function changeLeadStageFromModal(e) {
   const newStage = e.target.value;
   if (!state.currentLead || state.currentLead.stage === newStage) return;
-
-  const leadId = state.currentLead.id;
-  state.currentLead.stage = newStage;
-
-  try {
-    await fetch(`${API_BASE}/leads/${leadId}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ stage: newStage })
-    });
-
-    renderKanban();
-    renderTableLeads();
-    refreshMetrics();
-    showToast('Etapa Atualizada', `Lead alterado para "${getStageName(newStage)}".`, 'success');
-  } catch (err) {
-    showToast('Erro', 'Falha ao atualizar etapa.', 'error');
-  }
+  await advanceLeadStage(state.currentLead.id, newStage, e);
 }
 
 async function deleteCurrentLead() {
