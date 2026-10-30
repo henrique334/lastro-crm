@@ -77,10 +77,25 @@ h1, h2, h3, h4, .font-heading {
   background: #4d8bff;
 }
 
-/* Kanban Drag & Drop */
+/* Kanban Drag & Drop e Rolagem Vertical Interna */
 .kanban-column {
-  min-height: calc(100vh - 270px);
+  scrollbar-width: thin;
+  scrollbar-color: #2b2b2b transparent;
   transition: background-color 0.2s ease;
+}
+
+.kanban-column::-webkit-scrollbar {
+  width: 5px;
+}
+.kanban-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+.kanban-column::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: 4px;
+}
+.kanban-column::-webkit-scrollbar-thumb:hover {
+  background: #0057ff;
 }
 
 .kanban-column.drag-over {

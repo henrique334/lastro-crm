@@ -232,101 +232,101 @@
   </div>
 
   <!-- CONTEÚDO PRINCIPAL (ABAS) -->
-  <main class="flex-1 max-w-[1700px] w-full mx-auto px-4 sm:px-6 py-4">
+  <main class="flex-1 w-full max-w-[1920px] mx-auto px-2 sm:px-4 py-2">
     
-    <!-- ABA 1: FUNIL KANBAN -->
-    <section id="view-kanban" class="tab-content block">
-      <div class="kanban-scroll-container flex gap-4 items-start overflow-x-auto pb-6 pt-1 select-none w-full">
+    <!-- ABA 1: FUNIL KANBAN (PADRÃO QUADRADO COM ROLAGEM INTERNA E 7 COLUNAS ENQUADRADAS) -->
+    <section id="view-kanban" class="tab-content block w-full">
+      <div class="kanban-scroll-container flex xl:grid xl:grid-cols-7 gap-2.5 items-stretch overflow-x-auto xl:overflow-x-visible pb-2 pt-1 select-none w-full">
         
         <!-- 1. Novos / Descoberta -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-300">Descoberta</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-surface_border rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface_border/60 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-gray-300 truncate">Descoberta</h3>
             </div>
-            <span class="stage-count bg-surface_border text-gray-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="novo">0</span>
+            <span class="stage-count bg-surface_border text-gray-300 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="novo">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="novo" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'novo')">
-            <!-- Cards gerados dinamicamente via JS -->
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="novo" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'novo')">
+            <!-- Cards gerados dinamicamente via JS com rolagem interna -->
           </div>
         </div>
 
         <!-- 2. Qualificados pela IA -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-brand-blue/40 rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg shadow-brand-blue/5">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-brand-blue/20">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-brand-light">Qualificado (IA)</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-brand-blue/40 rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg shadow-brand-blue/5">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-brand-blue/20 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-brand-light animate-pulse flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-brand-light truncate">Qualificado (IA)</h3>
             </div>
-            <span class="stage-count bg-brand-blue/20 text-brand-light px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="qualificado">0</span>
+            <span class="stage-count bg-brand-blue/20 text-brand-light px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="qualificado">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="qualificado" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'qualificado')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="qualificado" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'qualificado')">
           </div>
         </div>
 
         <!-- 3. Primeiro Contato Feito -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-300">Contato Feito</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-surface_border rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface_border/60 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-gray-300 truncate">Contato Feito</h3>
             </div>
-            <span class="stage-count bg-surface_border text-gray-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="contato">0</span>
+            <span class="stage-count bg-surface_border text-gray-300 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="contato">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="contato" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'contato')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="contato" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'contato')">
           </div>
         </div>
 
         <!-- 4. Diagnóstico Agendado -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-300">Diagnóstico</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-surface_border rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface_border/60 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-gray-300 truncate">Diagnóstico</h3>
             </div>
-            <span class="stage-count bg-surface_border text-gray-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="diagnostico">0</span>
+            <span class="stage-count bg-surface_border text-gray-300 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="diagnostico">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="diagnostico" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'diagnostico')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="diagnostico" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'diagnostico')">
           </div>
         </div>
 
         <!-- 5. Proposta Enviada -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-300">Proposta</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-surface_border rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface_border/60 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-gray-300 truncate">Proposta</h3>
             </div>
-            <span class="stage-count bg-surface_border text-gray-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="proposta">0</span>
+            <span class="stage-count bg-surface_border text-gray-300 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="proposta">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="proposta" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'proposta')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="proposta" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'proposta')">
           </div>
         </div>
 
         <!-- 6. Em Negociação -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-surface_border rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-surface_border/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-300">Negociação</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-surface_border rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface_border/60 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-gray-300 truncate">Negociação</h3>
             </div>
-            <span class="stage-count bg-surface_border text-gray-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="negociacao">0</span>
+            <span class="stage-count bg-surface_border text-gray-300 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="negociacao">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="negociacao" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'negociacao')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="negociacao" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'negociacao')">
           </div>
         </div>
 
         <!-- 7. Fechado / Ganho -->
-        <div class="kanban-stage flex flex-col bg-surface/80 border border-emerald-500/40 rounded-2xl p-3.5 w-[280px] min-w-[280px] shrink-0 shadow-lg shadow-emerald-500/5">
-          <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-emerald-500/30">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-              <h3 class="font-bold text-xs uppercase tracking-wider text-emerald-400">Fechado / Ganho</h3>
+        <div class="kanban-stage flex flex-col bg-surface/85 border border-emerald-500/40 rounded-2xl p-2.5 w-[250px] min-w-[250px] xl:w-auto xl:min-w-0 h-[calc(100vh-220px)] min-h-[500px] max-h-[calc(100vh-220px)] shadow-lg shadow-emerald-500/5">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-emerald-500/30 flex-shrink-0">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+              <h3 class="font-bold text-[11px] uppercase tracking-wider text-emerald-400 truncate">Fechado / Ganho</h3>
             </div>
-            <span class="stage-count bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-md text-[11px] font-bold" data-stage="ganho">0</span>
+            <span class="stage-count bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[10px] font-bold" data-stage="ganho">0</span>
           </div>
-          <div class="kanban-column space-y-3" data-stage="ganho" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'ganho')">
+          <div class="kanban-column flex-1 overflow-y-auto space-y-2 pr-1" data-stage="ganho" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, 'ganho')">
           </div>
         </div>
 
@@ -663,27 +663,38 @@
 
       </div>
 
-      <!-- Rodapé do Modal com Troca Rápida de Etapa -->
-      <div class="p-4 border-t border-surface_border bg-dark/70 flex flex-wrap justify-between items-center gap-3">
-        <div class="flex items-center gap-2">
-          <span class="text-xs text-gray-400 font-semibold">Mudar Etapa:</span>
-          <select id="modal-lead-stage-select" onchange="changeLeadStageFromModal(event)" class="bg-surface border border-surface_border text-white text-xs rounded-xl px-3 py-1.5 focus:outline-none focus:border-brand-blue">
-            <option value="novo">Descoberta (Novo)</option>
-            <option value="qualificado">Qualificado pela IA</option>
-            <option value="contato">Contato Feito</option>
-            <option value="diagnostico">Diagnóstico Agendado</option>
-            <option value="proposta">Proposta Enviada</option>
-            <option value="negociacao">Em Negociação</option>
-            <option value="ganho">Fechado / Ganho</option>
-            <option value="perdido">Perdido</option>
-          </select>
+      <!-- Rodapé do Modal com Troca de Etapa 100% Visual e Interativa -->
+      <div class="p-4 border-t border-surface_border bg-[#0d0d0d] flex flex-wrap justify-between items-center gap-3 relative z-30">
+        <div class="flex items-center gap-2.5 relative">
+          <span class="text-xs text-gray-300 font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-arrows-split-up-and-left text-brand-light"></i> Mudar Etapa:
+          </span>
+          
+          <!-- Botão Principal com Dropdown Customizado (Totalmente visível em qualquer navegador) -->
+          <div class="relative inline-block text-left">
+            <button type="button" id="btn-modal-stage-selector" onclick="toggleModalStageDropdown(event)" class="bg-brand-blue hover:bg-blue-600 border border-brand-light/30 text-white font-bold text-xs rounded-xl px-3.5 py-2 flex items-center gap-2 shadow-lg shadow-brand-blue/30 transition cursor-pointer">
+              <span id="modal-stage-selector-label">Descoberta</span>
+              <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+            </button>
+
+            <!-- Menu Suspenso Flutuante (abre para cima sobre o rodapé) -->
+            <div id="modal-stage-dropdown-menu" class="hidden absolute bottom-full left-0 mb-2 w-64 bg-[#141414] border border-surface_border rounded-2xl shadow-2xl p-2 z-50 space-y-1 backdrop-blur-xl">
+              <!-- Gerado via JS com as 7 etapas -->
+            </div>
+          </div>
+
+          <!-- Botão Rápido de Avançar 1 Etapa -->
+          <button type="button" id="btn-modal-quick-advance" onclick="advanceCurrentLeadToNextStage(event)" class="bg-surface hover:bg-white/10 border border-brand-blue/40 text-brand-light hover:text-white text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-sm">
+            <span id="modal-quick-advance-text">Avançar Etapa</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
         </div>
 
         <div class="flex items-center gap-2">
-          <button onclick="deleteCurrentLead()" class="text-red-400 hover:text-red-300 text-xs font-semibold px-3 py-1.5 transition">
+          <button type="button" onclick="deleteCurrentLead()" class="text-red-400 hover:text-red-300 text-xs font-semibold px-3 py-1.5 transition flex items-center gap-1 cursor-pointer">
             <i class="fa-solid fa-trash-can mr-1"></i> Excluir Lead
           </button>
-          <button onclick="closeModal('modal-lead-details')" class="px-4 py-1.5 bg-surface hover:bg-surface_border border border-surface_border text-white font-semibold text-xs rounded-xl transition">
+          <button type="button" onclick="closeModal('modal-lead-details')" class="px-4 py-2 bg-surface hover:bg-surface_border border border-surface_border text-white font-semibold text-xs rounded-xl transition cursor-pointer">
             Fechar
           </button>
         </div>

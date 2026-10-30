@@ -72,6 +72,14 @@ function setupEventListeners() {
       }
     });
   });
+
+  // Fechar dropdown de etapas do modal ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#btn-modal-stage-selector') && !e.target.closest('#modal-stage-dropdown-menu')) {
+      const menu = document.getElementById('modal-stage-dropdown-menu');
+      if (menu) menu.classList.add('hidden');
+    }
+  });
 }
 
 // ==========================================
@@ -140,8 +148,9 @@ function renderKanban() {
     if (col) {
       if (stageLeads.length === 0) {
         col.innerHTML = `
-          <div class="border border-dashed border-surface_border/80 rounded-2xl p-4 text-center text-gray-500 text-[11px]">
-            Nenhum lead nesta etapa
+          <div class="h-28 border border-dashed border-surface_border/80 rounded-xl p-3 flex flex-col items-center justify-center text-center text-gray-500 text-[10px]">
+            <i class="fa-solid fa-inbox text-gray-600 text-sm mb-1"></i>
+            <span>Nenhum lead nesta etapa</span>
           </div>
         `;
       } else {
@@ -155,7 +164,7 @@ function renderKanban() {
 
 function createLeadCardElement(lead) {
   const card = document.createElement('div');
-  card.className = 'lead-card bg-card border border-surface_border rounded-2xl p-3.5 space-y-2.5 relative select-none';
+  card.className = 'lead-card bg-card/95 hover:bg-card border border-surface_border hover:border-brand-blue/50 rounded-xl p-2.5 space-y-2 relative select-none shadow-md transition-all';
   card.setAttribute('draggable', 'true');
   card.setAttribute('data-id', lead.id);
 
@@ -185,73 +194,67 @@ function createLeadCardElement(lead) {
 
   card.innerHTML = `
     <!-- Topo do Card: Nicho & Score -->
-    <div class="flex items-center justify-between text-[11px]">
-      <span class="text-gray-400 font-medium truncate max-w-[130px]">${lead.segment || 'Geral'}</span>
-      <span class="px-2 py-0.5 rounded-full font-bold text-[10px] ${getScoreBadgeStyle(lead.score)}">
-        <i class="fa-solid fa-bullseye text-[9px] mr-0.5"></i> ${lead.score || 85}% Fit
+    <div class="flex items-center justify-between text-[10px]">
+      <span class="text-gray-400 font-medium truncate max-w-[100px]" title="${lead.segment || 'Geral'}">${lead.segment || 'Geral'}</span>
+      <span class="px-1.5 py-0.5 rounded font-bold text-[9px] ${getScoreBadgeStyle(lead.score)}">
+        ${lead.score || 85}% Fit
       </span>
     </div>
 
-    <!-- Nome da Empresa -->
+    <!-- Nome da Empresa & Localização -->
     <div>
-      <h4 class="font-heading font-bold text-white text-sm hover:text-brand-light transition truncate" title="${lead.companyName}">
+      <h4 class="font-heading font-bold text-white text-xs hover:text-brand-light transition truncate" title="${lead.companyName}">
         ${lead.tradeName || lead.companyName}
       </h4>
-      <p class="text-[11px] text-gray-300 font-medium flex items-center gap-1 mt-0.5 truncate" title="${lead.address || (lead.city + ' - SP')}">
-        <i class="fa-solid fa-location-dot text-[10px] text-brand-light flex-shrink-0"></i>
-        <span>${lead.address || (lead.city + ' - SP')}</span>
+      <p class="text-[10px] text-gray-400 font-medium flex items-center gap-1 mt-0.5 truncate" title="${lead.address || (lead.city + ' - SP')}">
+        <i class="fa-solid fa-location-dot text-[9px] text-brand-light flex-shrink-0"></i>
+        <span class="truncate">${lead.city || 'SP'}</span>
       </p>
-      ${lead.phone ? `
-        <p class="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
-          <i class="fa-solid fa-phone text-[9px] text-gray-500"></i>
-          <span>${lead.phone}</span>
-        </p>
-      ` : ''}
     </div>
 
     <!-- Solução Lastro Recomendada -->
-    <div class="pt-1">
-      <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-[10px] font-bold ${serviceBadgeClass}">
-        <i class="fa-solid ${service.icon} text-[10px]"></i>
-        ${service.name}
+    <div>
+      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold ${serviceBadgeClass} truncate max-w-full">
+        <i class="fa-solid ${service.icon} text-[8px]"></i>
+        <span class="truncate">${service.name}</span>
       </span>
     </div>
 
     <!-- Rodapé: Valor & Botão WhatsApp Direto -->
-    <div class="pt-2 border-t border-surface_border/80 flex items-center justify-between">
-      <span class="text-xs font-heading font-bold text-white">
+    <div class="pt-1.5 border-t border-surface_border/70 flex items-center justify-between">
+      <span class="text-[11px] font-heading font-bold text-white">
         R$ ${(lead.estimatedValue || 2500).toLocaleString('pt-BR')}
-        ${lead.recurrence ? '<span class="text-[9px] text-gray-500 font-normal">/mês</span>' : ''}
       </span>
 
       ${waUrl ? `
-        <a href="${waUrl}" target="_blank" title="Abrir WhatsApp com Copy da IA" class="btn-wa-direct w-7 h-7 rounded-lg bg-green-500/10 hover:bg-green-500 text-green-400 hover:text-white border border-green-500/20 flex items-center justify-center transition">
+        <a href="${waUrl}" target="_blank" title="Abrir WhatsApp com Copy da IA" class="btn-wa-direct w-6 h-6 rounded bg-green-500/10 hover:bg-green-500 text-green-400 hover:text-white border border-green-500/20 flex items-center justify-center transition cursor-pointer">
           <i class="fa-brands fa-whatsapp text-xs"></i>
         </a>
       ` : `
-        <span class="text-[10px] text-gray-600">Sem WA</span>
+        <span class="text-[9px] text-gray-600">Sem WA</span>
       `}
     </div>
 
     <!-- Controle Rápido de Mudança de Etapa no Card -->
-    <div class="card-stage-control pt-2 border-t border-surface_border/60 flex items-center justify-between gap-1 text-[11px]" onclick="event.stopPropagation()">
+    <div class="card-stage-control pt-1.5 border-t border-surface_border/50 flex items-center justify-between gap-1 text-[10px]" onclick="event.stopPropagation()">
       ${prevStage ? `
-        <button type="button" onclick="advanceLeadStage('${lead.id}', '${prevStage.id}', event)" title="Voltar para: ${prevStage.name}" class="w-6 h-6 rounded-lg bg-surface hover:bg-surface_border border border-surface_border text-gray-400 hover:text-white flex items-center justify-center transition">
-          <i class="fa-solid fa-chevron-left text-[8px]"></i>
+        <button type="button" onclick="advanceLeadStage('${lead.id}', '${prevStage.id}', event)" title="Voltar para: ${prevStage.name}" class="h-5 px-1.5 rounded bg-surface hover:bg-surface_border border border-surface_border text-gray-400 hover:text-white flex items-center gap-0.5 transition text-[9px] cursor-pointer">
+          <i class="fa-solid fa-chevron-left text-[7px]"></i>
+          <span class="hidden sm:inline">Voltar</span>
         </button>
-      ` : '<div class="w-6"></div>'}
+      ` : '<div class="w-3"></div>'}
 
-      <select onchange="advanceLeadStage('${lead.id}', this.value, event)" class="bg-dark border border-surface_border text-gray-300 hover:text-white text-[10px] font-semibold rounded-lg px-2 py-1 focus:outline-none focus:border-brand-blue max-w-[125px] truncate cursor-pointer">
-        ${PIPELINE_STAGES.map(s => `<option value="${s.id}" ${currentStageId === s.id ? 'selected' : ''}>${s.name}</option>`).join('')}
-      </select>
+      <span class="text-[9px] text-gray-400 font-semibold truncate px-1" title="Etapa atual: ${getStageName(currentStageId)}">
+        ${getStageName(currentStageId)}
+      </span>
 
       ${nextStage ? `
-        <button type="button" onclick="advanceLeadStage('${lead.id}', '${nextStage.id}', event)" title="Avançar para: ${nextStage.name}" class="px-2 py-1 rounded-lg bg-brand-blue/20 hover:bg-brand-blue border border-brand-blue/40 text-brand-light hover:text-white font-bold transition flex items-center gap-1 text-[10px]">
+        <button type="button" onclick="advanceLeadStage('${lead.id}', '${nextStage.id}', event)" title="Avançar para: ${nextStage.name}" class="h-5 px-2 rounded bg-brand-blue/20 hover:bg-brand-blue border border-brand-blue/40 text-brand-light hover:text-white font-bold transition flex items-center gap-1 text-[9px] cursor-pointer">
           <span>Avançar</span>
-          <i class="fa-solid fa-chevron-right text-[8px]"></i>
+          <i class="fa-solid fa-chevron-right text-[7px]"></i>
         </button>
       ` : `
-        <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px] border border-emerald-500/30">
+        <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[9px] border border-emerald-500/30">
           ✓ Ganho
         </span>
       `}
@@ -794,6 +797,7 @@ function openLeadModal(leadId) {
   renderModalInteractions(lead.interactions || []);
 
   renderModalStageStepper();
+  renderModalStageFooter();
   switchLeadModalTab('audit');
   openModal('modal-lead-details');
 }
@@ -845,6 +849,75 @@ function renderModalStageStepper() {
   }).join('');
 }
 
+function toggleModalStageDropdown(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('modal-stage-dropdown-menu');
+  if (menu) menu.classList.toggle('hidden');
+}
+
+function renderModalStageFooter() {
+  if (!state.currentLead) return;
+
+  const currentStage = state.currentLead.stage || 'novo';
+  const currentIdx = PIPELINE_STAGES.findIndex(s => s.id === currentStage);
+  const currentStageObj = PIPELINE_STAGES[currentIdx] || { name: 'Descoberta' };
+
+  // Atualizar label do botão principal
+  const label = document.getElementById('modal-stage-selector-label');
+  if (label) {
+    label.textContent = `${currentIdx + 1}. ${currentStageObj.name}`;
+  }
+
+  // Preencher itens do menu suspenso flutuante
+  const menu = document.getElementById('modal-stage-dropdown-menu');
+  if (menu) {
+    menu.innerHTML = PIPELINE_STAGES.map((st, idx) => {
+      const isActive = st.id === currentStage;
+      return `
+        <button type="button" onclick="selectModalStage('${st.id}', event)" class="w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition cursor-pointer ${isActive ? 'bg-brand-blue text-white font-bold shadow-md shadow-brand-blue/30' : 'text-gray-300 hover:bg-white/10 hover:text-white'}">
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full ${isActive ? 'bg-white text-brand-blue font-bold' : 'bg-dark text-gray-400'} flex items-center justify-center text-[10px]">${idx + 1}</span>
+            <span>${st.name}</span>
+          </div>
+          ${isActive ? '<i class="fa-solid fa-circle-check text-white text-xs"></i>' : ''}
+        </button>
+      `;
+    }).join('');
+  }
+
+  // Atualizar botão de avanço rápido
+  const nextStage = currentIdx >= 0 && currentIdx < PIPELINE_STAGES.length - 1 ? PIPELINE_STAGES[currentIdx + 1] : null;
+  const quickBtn = document.getElementById('btn-modal-quick-advance');
+  const quickText = document.getElementById('modal-quick-advance-text');
+  if (quickBtn && quickText) {
+    if (nextStage) {
+      quickBtn.classList.remove('hidden');
+      quickText.textContent = `Avançar para: ${nextStage.name}`;
+    } else {
+      quickBtn.classList.add('hidden');
+    }
+  }
+}
+
+function selectModalStage(targetStage, e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('modal-stage-dropdown-menu');
+  if (menu) menu.classList.add('hidden');
+  if (!state.currentLead) return;
+  advanceLeadStage(state.currentLead.id, targetStage, e);
+}
+
+function advanceCurrentLeadToNextStage(e) {
+  if (e) e.stopPropagation();
+  if (!state.currentLead) return;
+
+  const currentIdx = PIPELINE_STAGES.findIndex(s => s.id === (state.currentLead.stage || 'novo'));
+  if (currentIdx >= 0 && currentIdx < PIPELINE_STAGES.length - 1) {
+    const nextStage = PIPELINE_STAGES[currentIdx + 1];
+    advanceLeadStage(state.currentLead.id, nextStage.id, e);
+  }
+}
+
 async function advanceLeadStage(leadId, targetStage, event) {
   if (event) {
     if (typeof event.stopPropagation === 'function') event.stopPropagation();
@@ -862,8 +935,7 @@ async function advanceLeadStage(leadId, targetStage, event) {
   if (state.currentLead && state.currentLead.id === leadId) {
     state.currentLead.stage = targetStage;
     renderModalStageStepper();
-    const stageSelect = document.getElementById('modal-lead-stage-select');
-    if (stageSelect) stageSelect.value = targetStage;
+    renderModalStageFooter();
   }
 
   // Renderizar o Kanban e a Tabela imediatamente
@@ -909,8 +981,7 @@ async function advanceLeadStage(leadId, targetStage, event) {
     if (state.currentLead && state.currentLead.id === leadId) {
       state.currentLead.stage = previousStage;
       renderModalStageStepper();
-      const stageSelect = document.getElementById('modal-lead-stage-select');
-      if (stageSelect) stageSelect.value = previousStage;
+      renderModalStageFooter();
     }
     renderKanban();
     renderTableLeads();
